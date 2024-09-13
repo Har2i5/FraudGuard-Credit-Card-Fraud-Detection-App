@@ -7,8 +7,18 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import joblib
 import streamlit as st
+import zipfile
 
-transactions = pd.read_csv('creditcard.csv')
+# Define the path to your zip file
+zip_file_path = 'creditcard.zip'
+csv_file_name = 'creditcard.csv'  # Name of the CSV file inside the zip
+
+# Open the zip file and read the CSV
+with zipfile.ZipFile(zip_file_path, 'r') as z:
+    with z.open(csv_file_name) as f:
+        # Read the CSV file into a DataFrame
+        transactions = pd.read_csv(f)
+
 
 # object_columns = transactions.select_dtypes(include = ['object']).columns
 
