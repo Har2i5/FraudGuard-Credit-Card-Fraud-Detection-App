@@ -9,8 +9,10 @@ import joblib
 import streamlit as st
 import zipfile
 
-zf = zipfile.ZipFile('creditcard.zip') 
-transactions = pd.read_csv(zf.open('creditcard.csv'))
+url = 'https://drive.google.com/file/d/1GCxyQwI40v3aDM8C47wN6TbImh9aNwAW/view?usp=drive_link'
+file_id=url.split('/')[-2]
+dwn_url='https://drive.google.com/uc?id=' + file_id
+transactions = pd.read_csv(dwn_url)
 
 
 # object_columns = transactions.select_dtypes(include = ['object']).columns
