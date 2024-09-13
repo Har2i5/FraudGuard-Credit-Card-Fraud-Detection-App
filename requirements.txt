@@ -1,6 +1,5 @@
 pandas
 numpy
-zipfile
 scikit-learn
 matplotlib
 seaborn
